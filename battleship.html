@@ -1,0 +1,51 @@
+﻿<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Battleship</title>
+  <meta name="description" content="battleship">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+</head>
+
+<body>
+  <script>
+	$(function(){
+		var x = 3; var y = 4; var z = 5;
+		var attempts = 0;
+		var hits = 0;
+		var currentTry;
+		var isDestroyed = false;	
+		
+		while (!isDestroyed) {
+			currentTry = parseInt(prompt('Введите число от 0 до 7'));
+			if (isNaN(currentTry)) {
+				alert('Введите именно число');
+				continue; //перейдет в начало цикла
+			}
+			if ((currentTry < 0) || (currentTry > 7)) {
+				alert('Введите правильное число');
+				continue;
+			}
+			
+			attempts += 1;
+			if ((currentTry == x) || (currentTry == y) || (currentTry == z)) {
+				hits += 1;
+				if (hits >=3) {
+					isDestroyed = true;
+					alert('Убил');
+				}
+				else {
+					alert('Ранил');
+				}
+			}
+			else {
+				alert ('Мимо!');
+			}
+		}
+	});
+  
+  </script>
+</body>
+</html>
